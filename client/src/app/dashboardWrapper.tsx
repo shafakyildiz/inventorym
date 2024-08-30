@@ -10,7 +10,6 @@ const DashboardWrapper = ({ children }: { children: React.ReactNode }) => {
         <Navbar />
         {children}
       </main>
-      DashboardWrapper {children}
     </div>
   );
 };
