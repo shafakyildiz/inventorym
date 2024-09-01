@@ -71,12 +71,12 @@ const CardExpenseSummary = () => {
                   <Pie
                     data={expenseCategories}
                     innerRadius={50}
-                    outerRadius={50}
+                    outerRadius={60}
                     fill="#8884d8"
                     dataKey="value"
                     nameKey="name"
                     cx="50%"
-                    cy="50"
+                    cy="50%"
                   >
                     {expenseCategories.map((entry, index) => (
                       <Cell
