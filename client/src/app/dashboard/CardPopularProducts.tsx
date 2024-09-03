@@ -3,6 +3,7 @@ import { ShoppingBag } from "lucide-react";
 import Rating from "../(components)/Rating";
 
 const CardPopularProducts = () => {
+  // TODO: Redux toolkit query expression
   const { data: dashboardMetrics, isLoading } = useGetDashboardMetricsQuery();
 
   return (
