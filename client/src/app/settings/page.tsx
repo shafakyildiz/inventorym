@@ -10,31 +10,11 @@ type UserSetting = {
 };
 
 const mockSettings: UserSetting[] = [
-  {
-    label: "Username",
-    value: "john_doe",
-    type: "text",
-  },
-  {
-    label: "Email",
-    value: "john_doe@gmail.com",
-    type: "text",
-  },
-  {
-    label: "Notification",
-    value: true,
-    type: "toggle",
-  },
-  {
-    label: "Dark Mode",
-    value: false,
-    type: "toggle",
-  },
-  {
-    label: "Language",
-    value: "English",
-    type: "text",
-  },
+  { label: "Username", value: "john_doe", type: "text" },
+  { label: "Email", value: "john.doe@example.com", type: "text" },
+  { label: "Notification", value: true, type: "toggle" },
+  { label: "Dark Mode", value: false, type: "toggle" },
+  { label: "Language", value: "English", type: "text" },
 ];
 
 const Settings = () => {
@@ -45,6 +25,7 @@ const Settings = () => {
     settingsCopy[index].value = !settingsCopy[index].value as boolean;
     setUserSettings(settingsCopy);
   };
+
   return (
     <div className="w-full">
       <Header name="User Settings" />
@@ -69,7 +50,7 @@ const Settings = () => {
                     <label className="inline-flex relative items-center cursor-pointer">
                       <input
                         type="checkbox"
-                        className="sr-only-peer"
+                        className="sr-only peer"
                         checked={setting.value as boolean}
                         onChange={() => handleToggleChange(index)}
                       />
