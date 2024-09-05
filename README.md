@@ -1,1 +1,3 @@
-# Inventory Management Application `inventorym`
+# Inventory Management Application
+
+`INVENTORYM`
