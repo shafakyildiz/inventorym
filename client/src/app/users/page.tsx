@@ -34,6 +34,7 @@ const Users = () => {
       <div className="text-center text-red-500 py-4">Failed to fetch users</div>
     );
   }
+
   return (
     <div className="flex flex-col">
       <Header name="Users" />
