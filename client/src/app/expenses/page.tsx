@@ -33,10 +33,9 @@ const Expenses = () => {
 
   const {
     data: expensesData,
-    isError,
     isLoading,
+    isError,
   } = useGetExpensesByCategoryQuery();
-
   const expenses = useMemo(() => expensesData ?? [], [expensesData]);
 
   const parseDate = (dateString: string) => {
@@ -44,7 +43,7 @@ const Expenses = () => {
     return date.toISOString().split("T")[0];
   };
 
-  const aggregateData: AggregatedDataItem[] = useMemo(() => {
+  const aggregatedData: AggregatedDataItem[] = useMemo(() => {
     const filtered: AggregatedData = expenses
       .filter((data: ExpenseByCategorySummary) => {
         const matchesCategory =
@@ -63,7 +62,6 @@ const Expenses = () => {
           acc[data.category].color = `#${Math.floor(
             Math.random() * 16777215
           ).toString(16)}`;
-
           acc[data.category].amount += amount;
         }
         return acc;
@@ -74,7 +72,7 @@ const Expenses = () => {
 
   const classNames = {
     label: "block text-sm font-medium text-gray-700",
-    select:
+    selectInput:
       "mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md",
   };
 
@@ -95,7 +93,7 @@ const Expenses = () => {
       {/* HEADER */}
       <div className="mb-5">
         <Header name="Expenses" />
-        <p className="text-sm">
+        <p className="text-sm text-gray-500">
           A visual representation of expenses over time.
         </p>
       </div>
@@ -108,26 +106,25 @@ const Expenses = () => {
           </h3>
           <div className="space-y-4">
             {/* CATEGORY */}
-            <div className="">
+            <div>
               <label htmlFor="category" className={classNames.label}>
                 Category
               </label>
               <select
-                name="category"
                 id="category"
-                className={classNames.select}
+                name="category"
+                className={classNames.selectInput}
                 defaultValue="All"
                 onChange={(e) => setSelectedCategory(e.target.value)}
               >
-                <option value="">All</option>
-                <option value="">Office</option>
-                <option value="">Professional</option>
-                <option value="">Salaries</option>
+                <option>All</option>
+                <option>Office</option>
+                <option>Professional</option>
+                <option>Salaries</option>
               </select>
             </div>
-
             {/* START DATE */}
-            <div className="">
+            <div>
               <label htmlFor="start-date" className={classNames.label}>
                 Start Date
               </label>
@@ -135,13 +132,12 @@ const Expenses = () => {
                 type="date"
                 id="start-date"
                 name="start-date"
-                className={classNames.select}
+                className={classNames.selectInput}
                 onChange={(e) => setStartDate(e.target.value)}
               />
             </div>
-
             {/* END DATE */}
-            <div className="">
+            <div>
               <label htmlFor="end-date" className={classNames.label}>
                 End Date
               </label>
@@ -149,19 +145,18 @@ const Expenses = () => {
                 type="date"
                 id="end-date"
                 name="end-date"
-                className={classNames.select}
+                className={classNames.selectInput}
                 onChange={(e) => setEndDate(e.target.value)}
               />
             </div>
           </div>
         </div>
-
         {/* PIE CHART */}
         <div className="flex-grow bg-white shadow rounded-lg p-4 md:p-6">
           <ResponsiveContainer width="100%" height={400}>
             <PieChart>
               <Pie
-                data={aggregateData}
+                data={aggregatedData}
                 cx="50%"
                 cy="50%"
                 label
@@ -170,12 +165,12 @@ const Expenses = () => {
                 dataKey="amount"
                 onMouseEnter={(_, index) => setActiveIndex(index)}
               >
-                {aggregateData.map(
+                {aggregatedData.map(
                   (entry: AggregatedDataItem, index: number) => (
                     <Cell
                       key={`cell-${index}`}
                       fill={
-                        index === activeIndex ? "rgb(29,78,216)" : entry.color
+                        index === activeIndex ? "rgb(29, 78, 216)" : entry.color
                       }
                     />
                   )
