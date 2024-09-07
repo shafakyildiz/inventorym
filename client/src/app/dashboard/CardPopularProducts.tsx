@@ -27,7 +27,7 @@ const CardPopularProducts = () => {
                   <Image
                     src={`https://s3-inventorymanagement-lethe.s3.eu-north-1.amazonaws.com/product${
                       Math.floor(Math.random() * 3) + 1
-                    }.jpg`}
+                    }.png`}
                     alt={product.name}
                     width={48}
                     height={48}
