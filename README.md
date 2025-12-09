@@ -2,7 +2,7 @@
 
 `INVENTORYM`.
 
-An Inventory Management Application helps businesses efficiently track, manage, and control their inventory levels. It allows users to monitor stock levels in real-time, automate reordering, generate reports on sales and stock movements, and optimize warehouse operations. The application improves inventory accuracy, minimizes stockouts and overstocking, and enhances supply chain efficiency. Ideal for businesses of all sizes, it integrates seamlessly with other systems like accounting or sales platforms for streamlined operations.
+An Inventory Management Application helps businesses efficiently track, manage, and control their inventory levels. It allows users to monitor stock levels in real-time, automate reordering, generate reports on sales and stock movements, and optimize warehouse operations. The application improves inventory accuracy, minimizes stockouts and overstocking, and enhances supply chain efficiency. Ideal for businesses of all sizes, it integrates seamlessly with other systems like accounting or sales platforms for streamlined operations...
 
 <img width="1919" height="938" alt="image" src="https://github.com/user-attachments/assets/e49df283-7c8e-408f-9235-36ff6634c20c" />
 
